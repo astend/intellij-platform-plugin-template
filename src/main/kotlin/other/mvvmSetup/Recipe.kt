@@ -16,7 +16,7 @@ fun RecipeExecutor.mvvmSetup(moduleData: ModuleTemplateData,
                              viewModelName: String,
                              factoryViewModelName: String,
                              packageName: String) {
-  val (projectData) = moduleData
+  val (projectData, srcOut, resOut, _) = moduleData
   val project = projectInstance ?: return
 
   addAllKotlinDependencies(moduleData)
@@ -41,10 +41,7 @@ fun RecipeExecutor.mvvmSetup(moduleData: ModuleTemplateData,
   buildFragmentLayout(packageName, fragmentName)
       .save(directoryRes, "layout", "${layoutName}.xml")
 
-  /*val file = directoryRes.findFile("${layoutName}.xml")
-  if (file != null) {
-    open("${layoutName}.xml")
-  }*/
+  open(srcOut.resolve("$newDirName/$fragmentName.kt"))
 }
 
 fun String.save(srcDir: PsiDirectory, subDirPath: String, fileName: String) {

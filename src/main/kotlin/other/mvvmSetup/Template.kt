@@ -2,7 +2,7 @@ package other.mvvmSetup
 
 import com.android.tools.idea.wizard.template.*
 
-val mvvmSetupTemplate
+val mvvmSetupTemplate: Template
   get() = template {
     revision = 2
     name = "Fragment MVVM"
@@ -11,8 +11,7 @@ val mvvmSetupTemplate
     minBuildApi = 16
     category = Category.Fragment
     formFactor = FormFactor.Mobile
-    screens = listOf(WizardUiContext.FragmentGallery, WizardUiContext.MenuEntry,
-        WizardUiContext.NewProject, WizardUiContext.NewModule)
+    screens = listOf(WizardUiContext.FragmentGallery, WizardUiContext.MenuEntry)
 
     val fragmentName = stringParameter {
       name = "Fragment name"
